@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resilience and Security Lab — Current & Ongoing Projects</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resilience and Security Lab — Current &amp; Ongoing Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -22,33 +22,6 @@
     --accent-forest: #3A6B4A;
     --border: #E0DAD0;
     --shadow: rgba(0,0,0,0.06);
-
-    /* subtle entrance animation for project cards */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.project-card {
-  opacity: 0; /* start hidden so animation shows */
-  animation-name: fadeUp;
-  animation-duration: 550ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.22,.9,.35,1);
-}
-
-/* stagger the cards (works for a CSS grid) */
-.projects > .project-card:nth-child(1) { animation-delay: 0ms; }
-.projects > .project-card:nth-child(2) { animation-delay: 80ms; }
-.projects > .project-card:nth-child(3) { animation-delay: 160ms; }
-.projects > .project-card:nth-child(4) { animation-delay: 240ms; }
-.projects > .project-card:nth-child(5) { animation-delay: 320ms; }
-.projects > .project-card:nth-child(6) { animation-delay: 400ms; }
-
-/* prevent hover transitions from competing with entrance animation */
-.project-card:hover {
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -294,6 +267,36 @@
     letter-spacing: 0.5px;
   }
 
+  /* -------------------------
+     Animated entrance (placed after the core .project-card rules)
+     ------------------------- */
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* apply animation to the cards inside .projects (staggered) */
+  .projects > .project-card {
+    opacity: 0; /* start hidden so animation shows */
+    animation-name: fadeUp;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.22,.9,.35,1);
+  }
+
+  .projects > .project-card:nth-child(1) { animation-delay: 0ms; }
+  .projects > .project-card:nth-child(2) { animation-delay: 80ms; }
+  .projects > .project-card:nth-child(3) { animation-delay: 160ms; }
+  .projects > .project-card:nth-child(4) { animation-delay: 240ms; }
+  .projects > .project-card:nth-child(5) { animation-delay: 320ms; }
+  .projects > .project-card:nth-child(6) { animation-delay: 400ms; }
+
+  /* ensure hover transitions still feel snappy */
+  .projects > .project-card:hover {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
   @media print {
     body { background: white; }
     .poster { padding: 30px; }
@@ -307,7 +310,7 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="lab-tag">Resilience and Security Lab</div>
+    <div class="lab-tag">The Resilience and Security Lab at O&rsquo;Neill</div>
     <h1>Current &amp; Ongoing Projects</h1>
     <p class="subtitle">Research at the intersection of policy, resilience, data science, and community</p>
   </div>
